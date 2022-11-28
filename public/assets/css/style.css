@@ -1,0 +1,810 @@
+@import url(chrome://resources/css/roboto.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+}
+
+
+body {
+  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+  font-size: 81.25%;
+}
+
+button {
+  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+} 
+
+h2 {
+    font-size: 32px;
+    line-height: 54px;
+    color: #5A5A5F;
+}
+
+h4 {
+    font-size: 20px;
+    color: #5A5A5F;
+}
+
+h6 {
+    font-weight: 700px;
+    font-size: 14px;
+}
+
+p {
+    font-size: 16px;
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+
+
+body {
+    width: 100%;
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+}
+
+
+/* --------------------------------------------------------- Log page1 ------------------------------------------------------------- */
+
+
+
+
+#log {
+    background-color: #FFFFFF;
+    position: absolute;
+    width: 720px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    
+    background: #D0FFC0;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+#log .color {
+    font-style: normal;
+    /* identical to box height, or 150% */
+    color: #5A5A5F;
+}
+
+#log h2 {
+    position: absolute;
+    width: 86px;
+    height: 48px;
+    left: 911px;
+    top: 260px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+#log h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #FFFFFF;
+    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#log h5 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #D9D9DF;
+
+}
+
+#log h6 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #5A5A5F;
+}
+
+#log .color .khung1 {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 352px;
+    height: 56px;
+    left: 911px;
+    top: 377px;
+    
+    background: #FFFFFF;
+    border: 1px solid #B6B6BB;
+    border-radius: 4px;
+}
+
+#log .color .khung2 {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 352px;
+    height: 56px;
+    left: 911px;
+    top: 486px;
+    
+    background: #FFFFFF;
+    border: 1px solid #B6B6BB;
+    border-radius: 4px;
+}
+
+#log .color .khung3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 20px;
+    gap: 8px;
+    
+    position: absolute;
+    width: 352px;
+    height: 56px;
+    left: 911px;
+    top: 598px;
+    
+    background: #29A744;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#log .color .pois0 {
+    position: absolute;
+    width: 86px;
+    height: 48px;
+    left: 911px;
+    top: 260px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height, or 150% */
+    
+    
+    color: #5A5A5F
+}
+
+#log .color .pois1 {
+    position: absolute;
+    width: 40px;
+    height: 21px;
+    left: 911px;
+    top: 348px;
+}
+
+#log .color .pois2 {
+    position: absolute;
+    width: 71px;
+    height: 21px;
+    left: 911px;
+    top: 457px;
+}
+
+#log .color .pois3 {
+    position: absolute;
+    width: 129px;
+    height: 21px;
+    left: 911px;
+    top: 550px;    
+}
+
+#log .color .pois3 h6 {
+    color: #29A744;  
+    cursor: pointer;  
+}
+
+#log .color .pois4 {
+    position: absolute;
+    width: 114px;
+    height: 21px;
+    left: 911px;
+    top: 678px;
+}
+
+#log .color .pois5 {
+    position: absolute;
+    width: 149px;
+    height: 21px;
+    left: 1033px;
+    top: 678px;
+    color: #29A744;
+}
+
+ #log .color .pois5 h6 {
+    color: #29A744;
+    cursor: pointer;
+ }
+
+ #log .color h5 {
+    position: absolute;
+    width: 180px;
+    height: 27px;
+    left: 16px;
+    top: 14px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #D9D9DF;    
+ }
+ 
+ #log .color .logo{
+
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    left: 45px;
+    top: 250px;
+
+ }
+
+ /*---------------------------------------------------------Create account page 2------------------------------------------------- */
+
+ #newacc {
+    background-color: #FFFFFF;
+    position: absolute;
+    width: 720px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    
+    background: #D0FFC0;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+#newacc .coloracc {
+    font-style: normal;
+    /* identical to box height, or 150% */
+    color: #5A5A5F;
+}
+
+#newacc .coloracc {
+    font-style: normal;
+    /* identical to box height, or 150% */
+    color: #5A5A5F;
+}
+
+#newacc .coloracc .text1 {
+    position: absolute;
+    width: 253px;
+    height: 48px;
+    left: 911px;
+    top: 157px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height, or 150% */
+    color: #5A5A5F; 
+}
+
+#newacc .coloracc .text2 {
+    position: absolute;
+    width: 133px;
+    height: 21px;
+    left: 1129px;
+    top: 237px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    color: #5A5A5F; 
+}
+
+#newacc .coloracc .text3 {
+    position: absolute;
+    width: 80px;
+    height: 21px;
+    left: 911px;
+    top: 262px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #5A5A5F;
+}
+
+#newacc .coloracc .text4 {
+    position: absolute;
+    width: 48px;
+    height: 21px;
+    left: 911px;
+    top: 371px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #5A5A5F;
+}
+
+#newacc .coloracc .text5 {
+    position: absolute;
+    width: 78px;
+    height: 21px;
+    left: 911px;
+    top: 480px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #5A5A5F;
+}
+
+#newacc .coloracc .text6 {
+    position: absolute;
+    Width: 312px;
+    Height: 42.67px;
+    Top: 653.87px;
+    Left:951px;
+    
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 2%;
+    /* or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #5A5A5F;
+}
+
+#newacc .coloracc .text7 {
+    position: absolute;
+    width: 192px;
+    height: 21px;
+    left: 911px;
+    top: 781px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #5A5A5F;
+}
+
+#newacc .coloracc .text8 {
+    position: absolute;
+    width: 73px;
+    height: 21px;
+    left: 1111px;
+    top: 781px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #29A744;
+    cursor: pointer;    
+}
+
+#newacc .coloracc .logo {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    left: 45px;
+    top: 250px;
+
+ }
+
+#newacc .coloracc .khung21 {
+    position: absolute;
+    width: 352px;
+    height: 56px;
+    left: 911px;
+    top: 291px;
+    
+    background: #FFFFFF;
+    border: 1px solid #B6B6BB;
+    border-radius: 4px;
+}
+
+#newacc .coloracc .khung22 {
+    position: absolute;
+    width: 352px;
+    height: 56px;
+    left: 911px;
+    top: 400px;
+    
+    background: #FFFFFF;
+    border: 1px solid #B6B6BB;
+    border-radius: 4px;
+}
+
+#newacc .coloracc .khung23 {
+    position: absolute;
+    width: 352px;
+    height: 56px;
+    left: 911px;
+    top: 509px;
+    
+    background: #FFFFFF;
+    border: 1px solid #B6B6BB;
+    border-radius: 4px;
+}
+
+#newacc .coloracc .khung24 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 20px;
+    gap: 8px;
+    
+    position: absolute;
+    width: 352px;
+    height: 56px;
+    left: 911px;
+    top: 701px;
+    
+    background: #29A744;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#newacc .coloracc h5 {
+    position: absolute;
+    width: 180px;
+    height: 27px;
+    left: 16px;
+    top: 14px;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #D9D9DF;    
+}
+
+ #newacc .coloracc h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height, or 150% */
+    
+    letter-spacing: 0.02em;
+    
+    color: #FFFFFF;
+}
+
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    width: 28px;
+    height: 29.87px;
+    left: 911px;
+    Top: 643px;   
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #29A744;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .e8_710 { 
+	overflow:hidden;
+}
+.e8_710 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:1440px;
+	height:1024px;
+    left: 0;
+    top: 0;
+	position:absolute;
+}
+
+/*nền xanh bên trái*/
+.e8_711 { 
+	box-shadow:4px 0px 16px rgba(0, 0, 0, 0.25);
+	background-color:rgba(208.0000028014183, 255, 192.00000375509262, 1);
+	width:720px;
+	height:1024px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+/*khung điền email*/
+.e8_713 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:352px;
+	height:56px;
+	position:absolute;
+	left:911px;
+	top:486px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+}
+
+.e8_713 { 
+	border:1px solid rgba(90.00000223517418, 90.00000223517418, 95.00000193715096, 1);
+}
+
+/*căn lề trong khung email*/
+.e8_714 { 
+	color:rgba(90.00000223517418, 90.00000223517418, 95.00000193715096, 1);
+	width:256px;
+	height:27px;
+	position:absolute;
+	left:16px;
+	top:14px;
+	text-align:left;
+	font-size:18px;
+	letter-spacing:2;
+	line-height:px;
+}
+
+.e8_715 { 
+	width:32px;
+	height:34.13333511352539px;
+	position:absolute;
+	left:1228px;
+	top:497px;
+}
+.e8_716 { 
+	width:32px;
+	height:34.13333511352539px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.e8_717 { 
+	width:32px;
+	height:34.13333511352539px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+
+/* ô check
+.e8_718 { 
+	border:3px solid rgba(75.00000312924385, 181.0000044107437, 67.00000360608101, 1);
+}
+.e8_718 { 
+	width:21px;
+	height:14.933334350585938px;
+	position:absolute;
+	left:6px;
+	top:9.600000381469727px;
+} */
+
+.e8_719 { 
+	color:rgba(90.00000223517418, 90.00000223517418, 95.00000193715096, 1);
+	width:40px;
+	height:21px;
+	position:absolute;
+	left:896px;
+	top:426px;
+	text-align:left;
+	font-size:14px;
+	letter-spacing:2;
+	line-height:px;
+}
+
+/* forgot */
+.e8_720 { 
+	color:rgba(90.00000223517418, 90.00000223517418, 95.00000193715096, 1);
+	width:268px;
+	height:48px;
+	position:absolute;
+	left:895px;
+	top:260px;
+	text-align:left;
+	font-size:32px;
+	letter-spacing:0;
+	line-height:px;
+}
+
+/* text */
+.e8_721 { 
+	color:rgba(90.00000223517418, 90.00000223517418, 95.00000193715096, 1);
+	width:352px;
+	height:57.599998474121094px;
+	position:absolute;
+	left:897px;
+	top:354.13330078125px;
+	text-align:left;
+	font-size:18px;
+	letter-spacing:2;
+	line-height:px;
+}
+
+/*send otp*/
+.e8_722 { 
+	background-color:rgba(41.00000135600567, 167.00000524520874, 68.00000354647636, 1);
+	width:158px;
+	height:56px;
+	position:absolute;
+	left:1105px;
+	top:598px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+    cursor: pointer;
+}
+.e8_723 { 
+	color:rgba(255, 255, 255, 1);
+	width:118px;
+	height:36px;
+	position:absolute;
+	left:20px;
+	top:10px;
+	text-align:left;
+	font-size:24px;
+	letter-spacing:2;
+	line-height:px;
+}
+.e8_724 { 
+	background-color:rgba(255, 255, 255, 1);
+	width:129px;
+	height:56px;
+	position:absolute;
+	left:911px;
+	top:598px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+}
+.e8_724 { 
+	border:1px solid rgba(41.00000135600567, 167.00000524520874, 68.00000354647636, 1);
+}
+
+/* cancel */
+.e8_725 { 
+	color:rgba(41.00000135600567, 167.00000524520874, 68.00000354647636, 1);
+	width:89px;
+	height:36px;
+	position:absolute;
+	left:20px;
+	top:10px;
+	text-align:left;
+	font-size:24px;
+	letter-spacing:2;
+	line-height:px;
+    cursor: pointer;
+}
+.logo1 { 
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    left: 45px;
+    top: 250px;
+
+	background-image:url(img/Logologin.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+@import url(chrome://resources/css/roboto.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+}
