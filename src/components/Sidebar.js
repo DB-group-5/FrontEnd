@@ -11,7 +11,6 @@ import ListItemText from '@mui/material/ListItemText';
 import { useLocation, useNavigate } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
-import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -60,7 +59,7 @@ export default function Sidebar (){
             <Box sx={{ overflow: 'auto' }}>
             <List>
                 <ListItem disablePadding>
-                    <ListItemButton selected={selectedIndex === 0} onClick={(event) => handleListItemClick('', 0)}>
+                    <ListItemButton selected={path === '/'} onClick={(event) => handleListItemClick('', 0)}>
                         <ListItemIcon>
                             <HomeIcon />
                         </ListItemIcon>
@@ -68,7 +67,7 @@ export default function Sidebar (){
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton selected={selectedIndex === 1} onClick={(event) => handleListItemClick('supplier', 1)}>
+                    <ListItemButton selected={path === '/supplier' || selectedIndex === 1} onClick={(event) => handleListItemClick('supplier', 1)}>
                         <ListItemIcon>
                             <Inventory2Icon />
                         </ListItemIcon>
@@ -76,15 +75,7 @@ export default function Sidebar (){
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                    <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick('', 2)}>
-                        <ListItemIcon>
-                            <DragIndicatorIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Category"} />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                    <ListItemButton selected={selectedIndex === 3} onClick={(event) => handleListItemClick('report', 3)}>
+                    <ListItemButton selected={path === '/report'} onClick={(event) => handleListItemClick('report', 3)}>
                         <ListItemIcon>
                             <AssessmentIcon />
                         </ListItemIcon>

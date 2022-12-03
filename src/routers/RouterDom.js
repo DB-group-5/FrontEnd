@@ -25,8 +25,8 @@ const DetailSupplier = lazy(()=>
     import('../pages/Supplier/Detail')
 );
 
-const AddSupplier = lazy(()=>
-    import('../pages/Supplier/AddSupply.js')
+const DetailReport = lazy(()=>
+    import('../pages/Report/DetailReport')
 );
 
 class RouterDom extends Component {
@@ -36,12 +36,12 @@ class RouterDom extends Component {
                 <Suspense fallback={<p>Loading...</p>}>
                     <Routes>
                         <Route path="/" exact element={<Home></Home>} />
-                        <Route path="/login" exact element={<Login></Login>} />
-                        <Route path="/report" exact element={<Report></Report>} />
-                        <Route path="/profile" exact element={<Profile></Profile>} />
-                        <Route path="/supplier" exact element={<Supplier></Supplier>} />
-                        <Route path="/supplier/addnew" exact element={<AddSupplier></AddSupplier>} />
-                        <Route path="/supplier/:supplier" exact element={<DetailSupplier></DetailSupplier>} />
+                        <Route path="/login" element={<Login></Login>} />
+                        <Route path="/report" element={<Report></Report>} />
+                        <Route path="/profile" element={<Profile></Profile>} />
+                        <Route path="/supplier" element={<Supplier></Supplier>} />
+                        <Route path="/supplier/:id" element={<DetailSupplier></DetailSupplier>} />
+                        <Route path="/report/:supplier" element={<DetailReport></DetailReport>} />
                     </Routes>
                 </Suspense>
             </>

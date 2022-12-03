@@ -19,7 +19,7 @@ export default function Login() {
   // const [email, setEmail] = React.useState('');
   // const [password, setPassword] = React.useState('');
 
-  const data = ["admin@gmail.com", "123456"];
+  const data = ["manager", "123456"];
 
   return (
     <React.Fragment>
@@ -63,19 +63,18 @@ export default function Login() {
             </Typography>
             <Formik
                 initialValues={{
-                    email: '',
+                    username: '',
                     password: ''
                 }}
                 validationSchema={Yup.object().shape({
-                    email: Yup.string()
-                        .email('Email is invalid')
-                        .required('Email is required'),
+                    username: Yup.string()
+                        .required('Username is required'),
                     password: Yup.string()
                         .min(6, 'Password must be at least 6 characters')
                         .required('Password is required')
                 })}
                 onSubmit={(values, { setSubmitting }) => {
-                  if(values.email === data[0] && values.password === data[1]){
+                  if(values.username === data[0] && values.password === data[1]){
                       navigate('/');
                   }
                 }}
@@ -91,15 +90,15 @@ export default function Login() {
                         <TextField
                           margin="normal"
                           fullWidth
-                          id="email"
-                          label="Email Address"
-                          name="email"
-                          autoComplete="email"
+                          id="username"
+                          label="UserName"
+                          name="username"
+                          autoComplete="username"
                           autoFocus
-                          value={values.email}  
+                          value={values.username}  
                           onChange={handleChange}                 
-                          error={touched.email && Boolean(errors.email)}
-                          helperText={touched.email && errors.email}
+                          error={touched.username && Boolean(errors.username)}
+                          helperText={touched.username && errors.username}
                         />
                         <TextField
                           margin="normal"

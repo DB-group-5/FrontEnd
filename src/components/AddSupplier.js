@@ -14,21 +14,31 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
+import { useDispatch } from 'react-redux';
+import { createSupplier } from '../redux/apiSupplier';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function AddSupllier() {
-  const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const dispatch = useDispatch();
+    const handleCreate = (e) => {
+        e.preventDefault();
+        const data = '';
+
+        createSupplier(data, dispatch);
+    }
 
   return (
     <div>
@@ -84,7 +94,7 @@ export default function AddSupllier() {
                                                     taxcode: '',
                                                     bankaccount: '',
                                                     phone:'',
-                                                    partername: ''
+                                                    parterID: ''
                                                 }}
                                                 validationSchema={Yup.object().shape({
                                                     name: Yup.string()
@@ -101,8 +111,12 @@ export default function AddSupllier() {
                                                     phone: Yup.string()
                                                         .min(9, 'Must be at least 10 characters')
                                                         .required('Phone Number is required'),
+                                                    parterID: Yup.string()
+                                                        .required('Parter ID Number is required'),
                                                 })}
                                                 onSubmit={(values) => {
+                                                    const data = '';
+                                                    createSupplier(data, dispatch);
                                                     alert(JSON.stringify(values, null, 2));
                                                 }}
                                                 render={({ 
@@ -179,13 +193,13 @@ export default function AddSupllier() {
                                                             margin="normal"
                                                             fullWidth
                                                             name="partername"
-                                                            label="Partner Name"
+                                                            label="Partner ID"
                                                             type="text"
                                                             id="partername"
-                                                            value={values.partername}  
+                                                            value={values.parterID}  
                                                             onChange={handleChange} 
-                                                            error={touched.partername && Boolean(errors.partername)}
-                                                            helperText={touched.partername && errors.partername}
+                                                            error={touched.parterID && Boolean(errors.parterID)}
+                                                            helperText={touched.parterID && errors.parterID}
                                                         />
                                                         <Button
                                                             type="submit"
