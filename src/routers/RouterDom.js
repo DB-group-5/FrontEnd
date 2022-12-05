@@ -41,7 +41,7 @@ class RouterDom extends Component {
                         <Route path="/profile" element={<Profile></Profile>} />
                         <Route path="/supplier" element={<Supplier></Supplier>} />
                         <Route path="/supplier/:id" element={<DetailSupplier></DetailSupplier>} />
-                        <Route path="/report/:supplier" element={<DetailReport></DetailReport>} />
+                        <Route path="/report/:id" element={<DetailReport></DetailReport>} />
                     </Routes>
                 </Suspense>
             </>

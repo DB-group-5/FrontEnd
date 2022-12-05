@@ -11,15 +11,13 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { loginUser } from '../../redux/apiRequest';
+import { useDispatch } from 'react-redux';
 
 export default function Login() {
   document.title = 'Login';
   const navigate = useNavigate();
-
-  // const [email, setEmail] = React.useState('');
-  // const [password, setPassword] = React.useState('');
-
-  const data = ["manager", "123456"];
+  const dispatch = useDispatch();
 
   return (
     <React.Fragment>
@@ -73,10 +71,12 @@ export default function Login() {
                         .min(6, 'Password must be at least 6 characters')
                         .required('Password is required')
                 })}
-                onSubmit={(values, { setSubmitting }) => {
-                  if(values.username === data[0] && values.password === data[1]){
-                      navigate('/');
-                  }
+                onSubmit={(values) => {
+                  const user = {
+                    username: values.username,
+                    password: values.password
+                  };
+                  loginUser(user, dispatch, navigate);
                 }}
                 render={({ 
                   values,
@@ -84,7 +84,6 @@ export default function Login() {
                   touched,
                   handleChange,
                   handleSubmit,
-                  isSubmitting,
                 }) => (
                     <Form onSubmit={handleSubmit}>
                         <TextField
@@ -122,7 +121,6 @@ export default function Login() {
                           fullWidth
                           variant="contained"
                           sx={{ mt: 3, mb: 2 }}
-                          disabled={isSubmitting}
                         >
                           Sign In
                         </Button>

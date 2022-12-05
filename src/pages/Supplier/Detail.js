@@ -21,7 +21,7 @@ import Tooltip from '@mui/material/Tooltip';
 import CurrentPrice from "./CurrentPrice";
 import Bolts from "./Bolts";
 import { useDispatch, useSelector } from "react-redux";
-import { getSupplier } from "../../redux/apiSupplier";
+import { getSupplier } from "../../redux/apiRequest";
 import Skeleton from '@mui/material/Skeleton';
 import CardMedia from '@mui/material/CardMedia';
 
@@ -33,48 +33,72 @@ function DetailSupplier() {
     const errMsg = useSelector(state=>state.supply.errMsg);
     const id = useParams().id;
     const [error, setError] = useState(errMsg === undefined ? 0 : 1);
-    console.log(detailInfo);
+  
     useEffect(()=>{
       getSupplier(id, dispatch);
     },[]);
     useEffect(()=>{
       getSupplier(id, dispatch);
     },[id, dispatch, error]);
-    if(error && !detailInfo){
-      <>
-          <Grid item sm={1}>
-            <Tooltip title="Go back" sx={{ml:2}}>
-              <IconButton onClick={()=>navigate(-1)}>
-                <ArrowBackIcon sx={{ fontSize: 30 }} />
-              </IconButton>
-            </Tooltip>
-          </Grid>
-          <CardMedia
-              component="img"
-              width={'50%'}
-              src="https://res.cloudinary.com/de3dpb9o4/image/upload/v1669933131/Na_Nov_26_x1jzkt.jpg"
-              alt="search"
-          />
-        </>
-    }
-    else if(!detailInfo){
+
+    if(detailInfo === null){
       return(
-        <Grid container justifyContent={'center'}>
-          <Grid item sm={1}>
-            <Tooltip title="Go back" sx={{ml:2}}>
-              <IconButton onClick={()=>navigate(-1)}>
-                <ArrowBackIcon sx={{ fontSize: 30 }} />
-              </IconButton>
-            </Tooltip>
+          <Grid container spacing={2} sx={{mt:2}}>
+            <Grid item sm={1}>
+              <Tooltip title="Go back" sx={{ml:2}}>
+                <IconButton onClick={()=>navigate(-1)}>
+                  <ArrowBackIcon sx={{ fontSize: 30 }} />
+                </IconButton>
+              </Tooltip>
+            </Grid>
+            <Grid item sm={5.5} sx={{ml:1}}>
+              <CardContent sx={{ paddingTop: 2, paddingBottom: 0 }}>
+                <Skeleton variant="rounded" width={550} height={30} />
+              </CardContent>
+              <Divider />
+              <CardContent sx={{ paddingTop: 3, paddingBottom: 1 }}>
+                <Typography variant="h2" sx={{ fontSize: 18, fontWeight: 600, pb:1}}>
+                  <CategoryIcon /> All of Category:
+                </Typography>
+              </CardContent>
+              <Divider />
+              <CardMedia
+                component="img"
+                sx={{width: '95%'}}
+                src="https://res.cloudinary.com/de3dpb9o4/image/upload/v1670052745/20943558_a3lf2k.jpg"
+                alt="search"
+              />
+            </Grid>
+              <Grid item sm={4}>
+              <CardContent sx={{ paddingTop: 0, paddingBottom: 0 }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    '& > :not(style)': {
+                      m: 1,
+                      width: 1200,
+                    },
+                  }}
+                >
+                  <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200'}}>
+                    <Typography variant="h6" gutterBottom>
+                      Contact
+                    </Typography>
+                    <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
+                    <Skeleton variant="rounded" width={320} height={60} />
+                    <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
+                    <Skeleton variant="rounded" width={320} height={60} />
+                    <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
+                    <Skeleton variant="rounded" width={320} height={60} />
+                    <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
+                    <Skeleton variant="rounded" width={320} height={60} />
+                    <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
+                    <Skeleton variant="rounded" width={320} height={60} />
+                  </Paper>
+                </Box>        
+              </CardContent>
+            </Grid>
           </Grid>
-          <CardMedia
-              component="img"
-              sx={{width: '50%'}}
-              src="https://res.cloudinary.com/de3dpb9o4/image/upload/v1670052745/20943558_a3lf2k.jpg"
-              alt="search"
-          />
-          
-        </Grid>
       );
     } else {
     return(

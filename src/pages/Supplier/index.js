@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -13,7 +12,7 @@ import Paper from '@mui/material/Paper';
 import AddSupllier from '../../components/AddSupplier';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getALlSupplier } from '../../redux/apiSupplier';
+import { getALlSupplier } from '../../redux/apiRequest';
 
 const headCells = [
   {
@@ -26,13 +25,13 @@ const headCells = [
     id: 'phone',
     numeric: true,
     disablePadding: false,
-    label: 'Phone Number',
+    label: 'Bank Account',
   },
   {
     id: 'provide',
     numeric: true,
     disablePadding: false,
-    label: 'Provide',
+    label: 'Tax Code',
   },
   {
     id: 'address',
@@ -88,7 +87,6 @@ export default function Supplier() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allsupplier = useSelector(state=>state.supply.allSupply);
-
 
   React.useEffect(()=>{
     getALlSupplier(dispatch);

@@ -12,7 +12,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Box from '@mui/material/Box';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllPrice } from '../../redux/apiSupplier';
+import { getAllPrice } from '../../redux/apiRequest';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';

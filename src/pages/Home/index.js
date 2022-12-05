@@ -99,7 +99,6 @@ function Home() {
                 <Container maxWidth="lg" sx={{ mb: 4 }}>
                     <Grid container spacing={3}>
                         {value ? (
-                            
                             <Grid item xs={12}>
                                 {!valueSearch ? (
                                     <CardMedia
@@ -154,9 +153,6 @@ function Home() {
                                                                 <Typography variant="h2" sx={{ fontSize: 15, fontWeight: 600, pb:1}}>
                                                                     Phone Number:
                                                                 </Typography>
-                                                                {/* <Typography key={index} variant="body" color="text.secondary">
-                                                                    {value.phone_number[0]}
-                                                                </Typography> */}
                                                                 {value.phone_number.map((phone)=>(
                                                                     <div key={phone}>
                                                                         <Typography key={phone} variant="body" color="text.secondary">

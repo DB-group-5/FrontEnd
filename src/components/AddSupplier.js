@@ -15,15 +15,19 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import { useDispatch } from 'react-redux';
-import { createSupplier } from '../redux/apiSupplier';
+import { createSupplier } from '../redux/apiRequest';
+import AxiosInstance from '../redux/AxiosIntance';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function AddSupllier() {
-    const [open, setOpen] = React.useState(false);
-
+    const [open, setOpen] = React.useState(false); 
+    const [partner, setPartner] = React.useState(null);
+    const [parterSelect, setPartnerSelect] = React.useState(null);
+    
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -33,15 +37,22 @@ export default function AddSupllier() {
     };
 
     const dispatch = useDispatch();
-    const handleCreate = (e) => {
-        e.preventDefault();
-        const data = '';
+    
+    React.useEffect(()=>{
+        async function SelectPartner(){
+            await AxiosInstance.get('/employees/partner').then((res)=>{
+                setPartner(res.data.data);
+            }).catch((error)=>{
+                setPartner(null);
+            })
+        }
 
-        createSupplier(data, dispatch);
-    }
+        SelectPartner();
+        console.log(parterSelect)
+    },[open, parterSelect]);
 
-  return (
-    <div>
+    return (
+    <>
         <Button onClick={handleClickOpen}>
             Add New  <AddHomeIcon />
         </Button>
@@ -93,15 +104,14 @@ export default function AddSupllier() {
                                                     address: '',
                                                     taxcode: '',
                                                     bankaccount: '',
-                                                    phone:'',
-                                                    parterID: ''
+                                                    phone: '',
                                                 }}
                                                 validationSchema={Yup.object().shape({
                                                     name: Yup.string()
                                                         .min(4, 'Supply Name must be at least 4 characters')
                                                         .required('Supply Name is required'),
                                                     address: Yup.string()
-                                                        .min(6, 'Address must be at least 6 characters')
+                                                        .min(2, 'Address must be at least 2 characters')
                                                         .required('Address is required'),
                                                     taxcode: Yup.string()
                                                         .required('Tax Code is required'),
@@ -109,15 +119,33 @@ export default function AddSupllier() {
                                                         .min(6, 'Must be at least 6 characters')
                                                         .required('Bank Account is required'),
                                                     phone: Yup.string()
-                                                        .min(9, 'Must be at least 10 characters')
+                                                        .min(9, 'Must be at least 9 characters')
                                                         .required('Phone Number is required'),
-                                                    parterID: Yup.string()
-                                                        .required('Parter ID Number is required'),
                                                 })}
                                                 onSubmit={(values) => {
-                                                    const data = '';
-                                                    createSupplier(data, dispatch);
-                                                    alert(JSON.stringify(values, null, 2));
+                                                    // eslint-disable-next-line no-array-constructor
+                                                    var array = new Array();
+                                                    let element = '';
+                                                    for (let index = 0; index <= values.phone.length; index++) {
+                                                        if(values.phone[index] === "," || index === values.phone.length){
+                                                            array.push(element);
+                                                            element = '';
+                                                        } else {
+                                                            element += values.phone[index];
+                                                        }
+                                                        
+                                                    }
+                                                    const data = {
+                                                        name: values.name,
+                                                        address: values.address,
+                                                        tax_code: values.taxcode,
+                                                        bank_account: values.bankaccount,
+                                                        phone: array,
+                                                        partner_id: parterSelect.partner_id
+                                                    };
+                                                    createSupplier(data, dispatch, setOpen);
+                                                    
+                                                    // alert(JSON.stringify(data, null, 2));
                                                 }}
                                                 render={({ 
                                                     values,
@@ -125,7 +153,6 @@ export default function AddSupllier() {
                                                     touched,
                                                     handleChange,
                                                     handleSubmit,
-                                                    isSubmitting,
                                                 }) => (
                                                     <Form onSubmit={handleSubmit}>
                                                         <TextField
@@ -170,8 +197,9 @@ export default function AddSupllier() {
                                                             fullWidth
                                                             name="phone"
                                                             label="Phone Number"
-                                                            type="number"
+                                                            type="text"
                                                             id="phone"
+                                                            placeholder='Type input: 0xxxxxxxxxxxx,0xxxxxxxxxxx'
                                                             value={values.phone}  
                                                             onChange={handleChange} 
                                                             error={touched.phone && Boolean(errors.phone)}
@@ -182,31 +210,37 @@ export default function AddSupllier() {
                                                             fullWidth
                                                             name="bankaccount"
                                                             label="Bank Account"
-                                                            type="number"
+                                                            type="text"
                                                             id="bankaccount"
                                                             value={values.bankaccount}  
                                                             onChange={handleChange} 
                                                             error={touched.bankaccount && Boolean(errors.bankaccount)}
                                                             helperText={touched.bankaccount && errors.bankaccount}
                                                         />
-                                                        <TextField
-                                                            margin="normal"
-                                                            fullWidth
-                                                            name="partername"
-                                                            label="Partner ID"
-                                                            type="text"
+                                                        <Autocomplete
+                                                            disablePortal
                                                             id="partername"
-                                                            value={values.parterID}  
-                                                            onChange={handleChange} 
-                                                            error={touched.parterID && Boolean(errors.parterID)}
-                                                            helperText={touched.parterID && errors.parterID}
+                                                            options={partner}
+                                                            getOptionLabel={(option) => `${option.full_name} : ${option.partner_id}`}
+                                                            onChange={(event, newValue) => {
+                                                                setPartnerSelect(newValue);
+                                                            }}
+                                                            isOptionEqualToValue={(option, value) => option.partner_id === value.partner_id}
+                                                            defaultValue={partner[0]}
+                                                            value={parterSelect}
+                                                            renderInput={(params) => (
+                                                                <TextField 
+                                                                    {...params} 
+                                                                    label="Partner Name" 
+                                                                />
+                                                            )}
+                                                            
                                                         />
                                                         <Button
                                                             type="submit"
                                                             fullWidth
                                                             variant="contained"
                                                             sx={{ mt: 3, mb: 2 }}
-                                                            disabled={isSubmitting}
                                                         >
                                                             Save
                                                         </Button>
@@ -222,6 +256,6 @@ export default function AddSupllier() {
                 </Container>
             </List>
       </Dialog>
-    </div>
+    </>
   );
 }

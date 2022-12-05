@@ -16,12 +16,15 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Swal from 'sweetalert2'
+import { logoutUser } from "../redux/apiRequest";
+import { useDispatch } from "react-redux";
 
 const drawerWidth = 240;
 
 export default function Sidebar (){
     const path = useLocation().pathname;
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [selectedIndex, setSelectedIndex] = React.useState(0);
 
     const handleListItemClick = (event, index) => {
@@ -41,7 +44,7 @@ export default function Sidebar (){
             allowOutsideClick: false
           }).then((result) => {
             if (result.isConfirmed) {
-              navigate('/login');
+                logoutUser(dispatch, navigate);
             }
         })
     }

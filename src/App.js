@@ -12,7 +12,6 @@ function App() {
   const path = useLocation().pathname;
   return (
     <div className="App">
-     
         <CssBaseline />
         {path === '/login' ? (
           <Login></Login>
