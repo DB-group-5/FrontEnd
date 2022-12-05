@@ -76,6 +76,7 @@ export const createSupplier = async(data, dispatch, isCreate)=>{
           })
         dispatch(errorMsg(null));
         isCreate(false);
+        window.location.reload();
     } catch(error){
         dispatch(errorMsg('error'));
         Swal.fire({
@@ -84,10 +85,6 @@ export const createSupplier = async(data, dispatch, isCreate)=>{
             text: error.response.data.message,
         })
     }
-}
-
-export const createSupplierPartner = async (dispatch) => {
-
 }
 
 export const getALlSupplier = async (dispatch) => {
