@@ -70,7 +70,7 @@ function Home() {
     React.useEffect(()=>{
         async function searchName(){
             if(value){
-                await AxiosInstance.get(`/search?name=${value}`)
+                await AxiosInstance.get(`/api/v1/search?name=${value}`)
                 .then((res)=>{
                     setValueSearch(res.data.data);
                 }).catch((error)=>{

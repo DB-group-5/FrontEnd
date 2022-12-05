@@ -40,7 +40,7 @@ export default function AddSupllier() {
     
     React.useEffect(()=>{
         async function SelectPartner(){
-            await AxiosInstance.get('/employees/partner').then((res)=>{
+            await AxiosInstance.get('/api/v1/employees/partner').then((res)=>{
                 setPartner(res.data.data);
             }).catch((error)=>{
                 setPartner(null);

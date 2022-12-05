@@ -34,7 +34,7 @@ export const loginUser = async (user, dispatch, navigate) => {
         }
     });  
     try {
-        const res = await AxiosInstance.post(`/login`, user);      
+        const res = await AxiosInstance.post(`/api/v1/login`, user);      
         localStorage.setItem('token', res.data.token);
         dispatch(loginAction());
         navigate('/');
@@ -69,7 +69,7 @@ export const logoutUser = async (dispatch, navigate) => {
 
 export const createSupplier = async(data, dispatch, isCreate)=>{
     try{
-        await AxiosInstance.post('/create-suppliers', data);
+        await AxiosInstance.post('api/v1/create-suppliers', data);
         Swal.fire({
             icon: 'success',
             title: 'Create Successfully...',
@@ -91,7 +91,7 @@ export const createSupplierPartner = async (dispatch) => {
 }
 
 export const getALlSupplier = async (dispatch) => {
-    await AxiosInstance.get(`/supplier`).then((res)=>{
+    await AxiosInstance.get(`/api/v1/supplier`).then((res)=>{
         dispatch(getAll(res.data.data));
     }).catch((error)=>{
         dispatch(errorMsg('Error'));
@@ -100,7 +100,7 @@ export const getALlSupplier = async (dispatch) => {
 
 export const getSupplier = async (id, dispatch) => {
     // get info
-    await AxiosInstance.get(`/supplier/${id}`).then((res)=>{
+    await AxiosInstance.get(`/api/v1/supplier/${id}`).then((res)=>{
         dispatch(getSupply(res.data.data));
         dispatch(errorMsg(undefined));
     }).catch((error)=>{
@@ -110,7 +110,7 @@ export const getSupplier = async (id, dispatch) => {
 }
 
 export const getAllBolt = async (name, sourcecode, dispatch) =>{
-    AxiosInstance.get(`/supplier/bolt?name=${name}&source_code=${sourcecode}`)
+    AxiosInstance.get(`/api/v1/supplier/bolt?name=${name}&source_code=${sourcecode}`)
     .then((res)=>{
         dispatch(getBolt(res.data.data))
     }).catch((error)=>{
@@ -119,7 +119,7 @@ export const getAllBolt = async (name, sourcecode, dispatch) =>{
 }
 
 export const getAllPrice = async (name, sourcecode, dispatch) =>{
-    await AxiosInstance.get(`/supplier/current-price?name=${name}&source_code=${sourcecode}`)
+    await AxiosInstance.get(`/api/v1/supplier/current-price?name=${name}&source_code=${sourcecode}`)
     .then((res)=>{
         dispatch(getPrice(res.data.data));
     }).catch((error)=>{
@@ -128,7 +128,7 @@ export const getAllPrice = async (name, sourcecode, dispatch) =>{
 }
 
 export const getAllCustomers = async (dispatch) => {
-    await AxiosInstance.get(`/customers`).then((res)=>{
+    await AxiosInstance.get(`/api/v1/customers`).then((res)=>{
         dispatch(All_Customers(res.data.data));
     }).catch((error)=>{
         dispatch(getReportError());
@@ -136,7 +136,7 @@ export const getAllCustomers = async (dispatch) => {
 }
 
 export const getCustomer = async (id, dispatch) => {
-    await AxiosInstance.get(`/report?id=${id}`).then((res)=>{
+    await AxiosInstance.get(`/api/v1/report?id=${id}`).then((res)=>{
         dispatch(getReport(res.data.data));
     }).catch((error)=>{
         dispatch(getReportError());
